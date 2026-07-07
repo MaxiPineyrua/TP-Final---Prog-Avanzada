@@ -1,0 +1,9 @@
+package enums;
+
+public enum MetodoPago {
+  TARJETA_CREDITO,
+  TARJETA_DEBITO,
+  TRANSFERENCIA_BANCARIA,
+  BILLETERA_VIRTUAL,
+  CONTRA_ENTREGA
+}

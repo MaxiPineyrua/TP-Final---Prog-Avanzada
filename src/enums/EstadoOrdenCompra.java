@@ -1,0 +1,13 @@
+package enums;
+
+public enum EstadoOrdenCompra {
+  CREADA,
+  PENDIENTE_PAGO,
+  PAGADA,
+  PREPARACION,
+  DESPACHADA,
+  EN_TRANSITO,
+  ENTREGADA,
+  CANCELADA,
+  DEVUELTA
+}
