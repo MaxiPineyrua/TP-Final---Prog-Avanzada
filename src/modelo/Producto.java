@@ -2,7 +2,10 @@ package modelo;
 
 import enums.EstadoProducto;
 
-public abstract class Producto {
+import interfaces.Descontable;
+import interfaces.Mostrable;
+
+public abstract class Producto implements Mostrable, Descontable {
   private String codigo;
   private String nombre;
   private String descripcion;
