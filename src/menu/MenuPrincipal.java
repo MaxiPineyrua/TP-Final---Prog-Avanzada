@@ -29,55 +29,56 @@ public class MenuPrincipal {
       System.out.println("10. Seguimiento de Pedidos");
       System.out.println("11. Reclamos y Devoluciones");
       System.out.println("12. Reportes");
-      System.out.println("13. Salir");
+      System.out.println("0. Salir");
       System.out.print("\nSeleccione una opción: ");
       opcion = scanner.nextInt();
       scanner.nextLine();
 
       switch (opcion) {
         case 1:
-          System.out.println("\nFunción en construcción...");
+          MenuUsuarios menuUsuarios = new MenuUsuarios();
+          menuUsuarios.mostrar();
           break;
         case 2:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Gestión de Roles ===");
           break;
         case 3:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Gestión de Productos ===");
           break;
         case 4:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Gestión de Categorías ===");
           break;
         case 5:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Gestión de Inventario ===");
           break;
         case 6:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Carrito de Compras ===");
           break;
         case 7:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Órdenes de Compra ===");
           break;
         case 8:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Procesamiento de Pagos ===");
           break;
         case 9:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Gestión de Envíos ===");
           break;
         case 10:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Seguimiento de Pedidos ===");
           break;
         case 11:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Reclamos y Devoluciones ===");
           break;
         case 12:
-          System.out.println("\nFunción en construcción...");
+          System.out.println("\n=== Reportes ===");
           break;
-        case 13:
+        case 0:
           System.out.println("Hasta luego!");
           break;
         default:
           System.out.println("Opción inválida. Intente nuevamente.");
       }
-    } while (opcion != 13);
+    } while (opcion != 0);
 
     scanner.close();
   }

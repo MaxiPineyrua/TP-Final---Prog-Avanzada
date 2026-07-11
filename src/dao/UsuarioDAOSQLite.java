@@ -18,21 +18,20 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
   public void guardar(Usuario usuario) {
     String sql = """
         INSERT INTO usuarios
-        (id, nombre, apellido, email, contrasena, fechaAlta, estado, rol)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        (nombre, apellido, email, contrasena, fechaAlta, estado, rol)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
         """;
 
     try (Connection conexion = ConexionSQLite.conectar();
         PreparedStatement sentencia = conexion.prepareStatement(sql)) {
 
-      sentencia.setInt(1, usuario.getId());
-      sentencia.setString(2, usuario.getNombre());
-      sentencia.setString(3, usuario.getApellido());
-      sentencia.setString(4, usuario.getEmail());
-      sentencia.setString(5, usuario.getContrasena());
-      sentencia.setString(6, usuario.getFechaAlta());
-      sentencia.setString(7, usuario.getEstado().toString());
-      sentencia.setString(8, usuario.getRol().toString());
+      sentencia.setString(1, usuario.getNombre());
+      sentencia.setString(2, usuario.getApellido());
+      sentencia.setString(3, usuario.getEmail());
+      sentencia.setString(4, usuario.getContrasena());
+      sentencia.setString(5, usuario.getFechaAlta());
+      sentencia.setString(6, usuario.getEstado().toString());
+      sentencia.setString(7, usuario.getRol().toString());
 
       sentencia.executeUpdate();
 
@@ -68,6 +67,38 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
             RolUsuario.valueOf(resultado.getString("rol")));
 
         return usuario;
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    return null;
+  }
+
+  // ----------- Buscar por Email -----------
+  @Override
+  public Usuario buscarPorEmail(String email) {
+    String sql = "SELECT * FROM usuarios WHERE email = ?";
+
+    try (Connection conexion = ConexionSQLite.conectar();
+        PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+
+      sentencia.setString(1, email);
+
+      var resultado = sentencia.executeQuery();
+
+      if (resultado.next()) {
+
+        return new Usuario(
+            resultado.getInt("id"),
+            resultado.getString("nombre"),
+            resultado.getString("apellido"),
+            resultado.getString("email"),
+            resultado.getString("contrasena"),
+            resultado.getString("fechaAlta"),
+            EstadoUsuario.valueOf(resultado.getString("estado")),
+            RolUsuario.valueOf(resultado.getString("rol")));
       }
 
     } catch (Exception e) {

@@ -9,9 +9,12 @@ public interface UsuarioDAO {
 
   Usuario buscarPorId(int id);
 
+  Usuario buscarPorEmail(String email);
+
   List<Usuario> obtenerTodos();
 
   void actualizar(Usuario usuario);
 
   void eliminar(int id);
+
 }
