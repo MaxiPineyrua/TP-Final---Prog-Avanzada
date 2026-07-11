@@ -7,7 +7,7 @@ import modelo.Producto;
 public interface ProductoDAO {
   void guardar(Producto producto);
 
-  Producto buscarPorId(int id);
+  Producto buscarPorCodigo(String codigo);
 
   List<Producto> obtenerTodos();
 

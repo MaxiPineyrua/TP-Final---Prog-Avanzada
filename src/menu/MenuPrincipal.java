@@ -43,7 +43,8 @@ public class MenuPrincipal {
           System.out.println("\n=== Gestión de Roles ===");
           break;
         case 3:
-          System.out.println("\n=== Gestión de Productos ===");
+          MenuProductos menuProductos = new MenuProductos();
+          menuProductos.mostrar();
           break;
         case 4:
           System.out.println("\n=== Gestión de Categorías ===");

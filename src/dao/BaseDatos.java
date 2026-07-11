@@ -10,6 +10,7 @@ public class BaseDatos {
     try (Connection conexion = ConexionSQLite.conectar();
         Statement statement = conexion.createStatement()) {
 
+      // Tabla de usuarios
       String sqlUsuario = """
             CREATE TABLE IF NOT EXISTS usuarios (
               id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,6 +27,7 @@ public class BaseDatos {
 
       System.out.println("\nTabla usuarios creada exitosamente. ");
 
+      // Tabla de productos
       String sqlProducto = """
             CREATE TABLE IF NOT EXISTS productos (
               codigo text PRIMARY KEY,
@@ -42,6 +44,19 @@ public class BaseDatos {
       statement.execute(sqlProducto);
 
       System.out.println("Tabla productos creada exitosamente. ");
+
+      // Tabla de categorías
+      String sqlCategoria = """
+            CREATE TABLE IF NOT EXISTS categorias (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              nombre TEXT NOT NULL,
+              descripcion TEXT NOT NULL,
+              estado TEXT NOT NULL
+            )
+          """;
+      statement.execute(sqlCategoria);
+
+      System.out.println("Tabla categorías creada exitosamente. ");
 
     } catch (Exception e) {
       e.printStackTrace();

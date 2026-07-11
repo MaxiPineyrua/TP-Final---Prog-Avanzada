@@ -38,9 +38,9 @@ public class ProductoDAOSQLite implements ProductoDAO {
     }
   }
 
-  // ----------- Buscar por ID -----------
+  // ----------- Buscar por Código -----------
   @Override
-  public Producto buscarPorId(int id) {
+  public Producto buscarPorCodigo(String codigo) {
     return null;
   }
 
@@ -113,5 +113,4 @@ public class ProductoDAOSQLite implements ProductoDAO {
       e.printStackTrace();
     }
   }
-
 }
